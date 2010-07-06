@@ -1,0 +1,27 @@
+{% extends "template1.html" %}
+
+{% block title %}HTTP Useful Request Information {% endblock %}
+
+{% block content %}
+	<p>HTTP Useful Request Information</p>
+	
+	<table border="1">
+	<tr><th>Field</th><th>Info</th></tr>
+	{% for k, v in httpvalues %}
+	
+		{% ifequal k 'HTTP_USER_AGENT' %}
+			<tr>
+				<th>{{k}}</th>
+				<th>{{v}}</th>
+			</tr>
+		{% else %}
+			<tr>
+				<td>{{k}}</td>
+				<td>{{v}}</td>
+			</tr>
+		{% endifequal %}		
+	{% endfor %}
+	</table> 
+		
+{% endblock %}
+
